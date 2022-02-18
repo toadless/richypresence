@@ -12,6 +12,8 @@ public class RichPresenceBuilder
     private String largeImageKey;
     private String smallImageKey;
 
+    private boolean timer;
+
     public RichPresenceBuilder()
     {
 
@@ -29,6 +31,8 @@ public class RichPresenceBuilder
         presence.state = Objects.equals(state, Layout.STATE.getPlaceholder()) ? null : state;
         presence.largeImageKey = Objects.equals(largeImageKey, Layout.LARGE_IMAGE_KEY.getPlaceholder()) ? null : largeImageKey;
         presence.smallImageKey = Objects.equals(smallImageKey, Layout.SMALL_IMAGE_KEY.getPlaceholder()) ? null : smallImageKey;
+
+        if (timer) presence.startTimestamp = System.currentTimeMillis() / 1000;
 
         return presence;
     }
@@ -53,6 +57,8 @@ public class RichPresenceBuilder
         return smallImageKey;
     }
 
+    public boolean getTimer() { return timer; }
+
     public RichPresenceBuilder setDetails(String details)
     {
         this.details = details;
@@ -74,6 +80,12 @@ public class RichPresenceBuilder
     public RichPresenceBuilder setSmallImageKey(String smallImageKey)
     {
         this.smallImageKey = smallImageKey;
+        return this;
+    }
+
+    public RichPresenceBuilder enableTimer()
+    {
+        this.timer = true;
         return this;
     }
 }

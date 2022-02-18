@@ -39,6 +39,7 @@ public class RichPresence
                     .setState(richyPresence.getStateTextField().getText())
                     .setLargeImageKey(richyPresence.getLargeImageKeyTextField().getText())
                     .setSmallImageKey(richyPresence.getSmallImageKeyTextField().getText())
+                    .enableTimer()
                     .build();
 
         DiscordRPC.discordUpdatePresence(presence);
@@ -53,6 +54,7 @@ public class RichPresence
                 .setState(richyPresence.getStateTextField().getText())
                 .setLargeImageKey(richyPresence.getLargeImageKeyTextField().getText())
                 .setSmallImageKey(richyPresence.getSmallImageKeyTextField().getText())
+                .enableTimer()
                 .build();
 
         DiscordRPC.discordUpdatePresence(presence);
